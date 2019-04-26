@@ -6,7 +6,7 @@ using UniGLTF;
 
 //blueback:https://github.com/dwango/UniVRM/blob/master/LICENSE.txt
 //blueback:VRMSpringBone.cs
-//blueback:warning CS0649: Field 'xxxx' is never assigned to, and will always have its default value
+//blueback:warning CS0649:
 #pragma warning disable 0649
 
 namespace VRM
@@ -87,7 +87,7 @@ namespace VRM
 
             public float Radius { get; set; }
 
-			///blueback:移動差分緩和。
+			//blueback:移動差分緩和。
 			public Vector3 m_last_transform_position;
 
             public VRMSpringBoneLogic(Transform center, Transform transform, Vector3 localChildPosition)
@@ -103,7 +103,7 @@ namespace VRM
                 m_boneAxis = localChildPosition.normalized;
                 m_length = localChildPosition.magnitude;
 
-				///blueback:移動差分緩和。
+				//blueback:移動差分緩和。
 				m_last_transform_position = m_transform.position;
             }
 
@@ -122,7 +122,7 @@ namespace VRM
                 float stiffnessForce, float dragForce, Vector3 external,
                 List<SphereCollider> colliders)
             {
-				///blueback:移動差分緩和。
+				//blueback:移動差分緩和。
 				{
 					Vector3 t_move_dir = m_transform.position - m_last_transform_position;
 					float t_move_length = t_move_dir.magnitude;
