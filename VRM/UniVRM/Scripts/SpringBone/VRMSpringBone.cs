@@ -87,8 +87,8 @@ namespace VRM
 
             public float Radius { get; set; }
 
-			//blueback:移動差分緩和。
-			public Vector3 m_last_transform_position;
+            //blueback:移動差分緩和。
+            public Vector3 m_last_transform_position;
 
             public VRMSpringBoneLogic(Transform center, Transform transform, Vector3 localChildPosition)
             {
@@ -103,8 +103,8 @@ namespace VRM
                 m_boneAxis = localChildPosition.normalized;
                 m_length = localChildPosition.magnitude;
 
-				//blueback:移動差分緩和。
-				m_last_transform_position = m_transform.position;
+                //blueback:移動差分緩和。
+                m_last_transform_position = m_transform.position;
             }
 
             Quaternion ParentRotation
@@ -122,20 +122,20 @@ namespace VRM
                 float stiffnessForce, float dragForce, Vector3 external,
                 List<SphereCollider> colliders)
             {
-				//blueback:移動差分緩和。
-				{
-					Vector3 t_move_dir = m_transform.position - m_last_transform_position;
-					float t_move_length = t_move_dir.magnitude;
-					if(t_move_length > 0.01f){
-						t_move_dir = t_move_dir.normalized * (t_move_length - 0.01f);
-					}else{
-						t_move_dir = Vector3.zero;
-					}
+                //blueback:移動差分緩和。
+                {
+                    Vector3 t_move_dir = m_transform.position - m_last_transform_position;
+                    float t_move_length = t_move_dir.magnitude;
+                    if(t_move_length > 0.01f){
+                        t_move_dir = t_move_dir.normalized * (t_move_length - 0.01f);
+                    }else{
+                        t_move_dir = Vector3.zero;
+                    }
 
-					m_last_transform_position = m_transform.position;
-					m_currentTail += t_move_dir;
-					m_prevTail += t_move_dir;
-				}
+                    m_last_transform_position = m_transform.position;
+                    m_currentTail += t_move_dir;
+                    m_prevTail += t_move_dir;
+                }
 
                 var currentTail = center!=null
                     ? center.TransformPoint(m_currentTail)
@@ -216,7 +216,7 @@ namespace VRM
                 Gizmos.color = color;
                 Gizmos.DrawLine(currentTail, m_transform.position);
 
-				Gizmos.color = Color.red;
+                Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(currentTail, radius);
             }
         }
