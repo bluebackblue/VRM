@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UniHumanoid;
@@ -13,11 +13,17 @@ namespace UniHumanoid
 {
     public class RuntimeBvhLoader : MonoBehaviour
     {
+		//blueback:warning CS0649
+		#pragma warning disable 0649
+
         [SerializeField]
         Button m_openButton;
 
         [SerializeField]
         HumanPoseTransfer m_dst;
+
+		//blueback:warning CS0649
+		#pragma warning restore 0649
 
         UnityAction m_onClick;
 

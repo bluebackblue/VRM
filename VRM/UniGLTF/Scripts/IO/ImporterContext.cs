@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -877,6 +877,9 @@ namespace UniGLTF
                 }
             }
 
+			//blueback:warning CS0618
+			#pragma warning disable 0618
+
             // Create or upate Main Asset
             if (prefabPath.IsFileExists)
             {
@@ -893,6 +896,9 @@ namespace UniGLTF
             {
                 x.ImportAsset();
             }
+
+			//blueback:warning CS0618
+			#pragma warning restore 0618
         }
 
         /// <summary>

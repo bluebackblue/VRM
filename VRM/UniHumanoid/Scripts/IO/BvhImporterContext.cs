@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -212,6 +212,9 @@ namespace UniHumanoid
                 AssetDatabase.AddObjectToAsset(o, path);
             }
 
+			//blueback:warning CS0618
+			#pragma warning disable 0618
+
             // Create or upate Main Asset
             if (File.Exists(path))
             {
@@ -224,6 +227,9 @@ namespace UniHumanoid
                 Debug.LogFormat("create prefab: {0}", path);
                 PrefabUtility.CreatePrefab(path, Root);
             }
+
+			//blueback:warning CS0618
+			#pragma warning restore 0618
 
             AssetDatabase.ImportAsset(path);
         }

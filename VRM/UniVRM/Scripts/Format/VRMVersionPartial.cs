@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
 namespace VRM
@@ -75,6 +75,9 @@ namespace VRM
                 return false;
             }
 
+			//blueback:warning CS0168
+			#pragma warning disable 0168
+
             v = new Version();
             try
             {
@@ -89,6 +92,8 @@ namespace VRM
             {
                 return false;
             }
+
+			#pragma warning restore 0168
         }
 
         public struct Version

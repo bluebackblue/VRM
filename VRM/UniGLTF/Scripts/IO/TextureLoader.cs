@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
@@ -267,6 +267,9 @@ namespace UniGLTF
                 f.Write(m_segments.Array, m_segments.Offset, m_segments.Count);
             }
 
+            //blueback:warning CS0618
+            #pragma warning disable 0618
+
             using (var d = new Deleter(tmp))
             {
                 var url = "file:///" + tmp.Replace("\\", "/");
@@ -292,6 +295,9 @@ namespace UniGLTF
                     Texture.name = m_textureName;
                 }
             }
+
+            //blueback:warning CS0618
+            #pragma warning restore 0618
         }
     }
 }
