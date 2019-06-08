@@ -21,7 +21,7 @@ namespace UniHumanoid
             {
                 if (IsStreamingAsset(path))
                 {
-                    Debug.LogFormat("Skip StreamingAssets: {0}", path);
+                    // Debug.LogFormat("Skip StreamingAssets: {0}", path);
                     continue;
                 }
 
