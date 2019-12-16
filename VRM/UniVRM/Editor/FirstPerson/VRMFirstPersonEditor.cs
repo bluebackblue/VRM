@@ -1,10 +1,11 @@
 ﻿using UnityEditor;
 
+//blueback:Editor ==> UnityEditor.Editor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMFirstPerson))]
-    class VRMFirstPersonEditor : Editor
+    class VRMFirstPersonEditor : UnityEditor.Editor
     {
         void OnSceneGUI()
         {
@@ -16,13 +17,19 @@ namespace VRM
                 return;
             }
 
+            EditorGUI.BeginChangeCheck();
 
             var worldOffset = head.localToWorldMatrix.MultiplyPoint(component.FirstPersonOffset);
             worldOffset = Handles.PositionHandle(worldOffset, head.rotation);
 
             Handles.Label(worldOffset, "FirstPersonOffset");
 
-            component.FirstPersonOffset = head.worldToLocalMatrix.MultiplyPoint(worldOffset);
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(component, "Changed FirstPerson");
+
+                component.FirstPersonOffset = head.worldToLocalMatrix.MultiplyPoint(worldOffset);
+            }
         }
     }
 }

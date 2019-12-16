@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Collections;
 using DepthFirstScheduler;
+using UniJSON;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -13,6 +14,8 @@ using UnityEditor;
 using System.Threading.Tasks;
 #endif
 
+//blueback:warning CS0618:
+#pragma warning disable 0618
 
 namespace UniGLTF
 {
@@ -259,12 +262,21 @@ namespace UniGLTF
                 new SimpleStorage(chunks[1].Bytes));
         }
 
+        public bool UseUniJSONParser;
         public virtual void ParseJson(string json, IStorage storage)
         {
             Json = json;
             Storage = storage;
 
-            GLTF = JsonUtility.FromJson<glTF>(Json);
+            if (UseUniJSONParser)
+            {
+                Json.ParseAsJson().Deserialize(ref GLTF);
+            }
+            else
+            {
+                GLTF = JsonUtility.FromJson<glTF>(Json);
+            }
+
             if (GLTF.asset.version != "2.0")
             {
                 throw new UniGLTFException("unknown gltf version {0}", GLTF.asset.version);
@@ -470,7 +482,7 @@ namespace UniGLTF
                 );
         }
 
-#if ((NET_4_6 || NET_STANDARD_2_0) && UNITY_2017_1_OR_NEWER)
+#if ((NET_4_6 || NET_STANDARD_2_0) && UNITY_2017_1_OR_NEWER && !UNITY_WEBGL)
         public async Task<GameObject> LoadAsyncTask()
         {
             await LoadAsync().ToTask();
@@ -877,9 +889,6 @@ namespace UniGLTF
                 }
             }
 
-			//blueback:warning CS0618
-			#pragma warning disable 0618
-
             // Create or upate Main Asset
             if (prefabPath.IsFileExists)
             {
@@ -896,9 +905,6 @@ namespace UniGLTF
             {
                 x.ImportAsset();
             }
-
-			//blueback:warning CS0618
-			#pragma warning restore 0618
         }
 
         /// <summary>

@@ -3,7 +3,6 @@ using System.Linq;
 using UnityEngine;
 using UniGLTF;
 
-
 //blueback:https://github.com/dwango/UniVRM/blob/master/LICENSE.txt
 //blueback:VRMSpringBone.cs
 //blueback:warning CS0649:
@@ -153,8 +152,6 @@ namespace VRM
                     + external // 外力による移動量
                     ;
 
-
-
                 // 長さをboneLengthに強制
                 nextTail = m_transform.position + (nextTail - m_transform.position).normalized * m_length;
 
@@ -215,8 +212,6 @@ namespace VRM
 
                 Gizmos.color = color;
                 Gizmos.DrawLine(currentTail, m_transform.position);
-
-                Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(currentTail, radius);
             }
         }
@@ -362,4 +357,3 @@ namespace VRM
         }
     }
 }
-

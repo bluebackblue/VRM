@@ -4,11 +4,12 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+//blueback:Editor ==> UnityEditor.Editor
 
 namespace UniHumanoid
 {
     [CustomEditor(typeof(HumanPoseTransfer))]
-    public class HumanPoseTransferEditor : Editor
+    public class HumanPoseTransferEditor : UnityEditor.Editor
     {
         //HumanPoseTransfer m_target;
         SerializedProperty m_avatarProp;

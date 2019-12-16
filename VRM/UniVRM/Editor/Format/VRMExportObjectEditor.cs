@@ -2,11 +2,12 @@
 using UnityEditor;
 using UnityEngine;
 
+//blueback:Editor ==> UnityEditor.Editor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMExportObject))]
-    public class VRMExportObjectEditor : Editor
+    public class VRMExportObjectEditor : UnityEditor.Editor
     {
         SerializedProperty m_settings;
         VRMExportObject m_target;

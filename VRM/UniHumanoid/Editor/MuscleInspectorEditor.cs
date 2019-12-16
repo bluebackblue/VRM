@@ -278,9 +278,10 @@ namespace UniHumanoid
         }
     }
 
+//blueback:Editor ==> UnityEditor.Editor
 
     [CustomEditor(typeof(MuscleInspector))]
-    public class MuscleInspectorEditor : Editor
+    public class MuscleInspectorEditor : UnityEditor.Editor
     {
         [NonSerialized] bool m_Initialized;
         [SerializeField] TreeViewState m_TreeViewState; // Serialized in the window layout file so it survives assembly reloading

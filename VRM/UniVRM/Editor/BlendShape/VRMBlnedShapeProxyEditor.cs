@@ -3,11 +3,12 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;
 
+//blueback:Editor ==> UnityEditor.Editor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMBlendShapeProxy))]
-    public class VRMBlnedShapeProxyEditor : Editor
+    public class VRMBlnedShapeProxyEditor : UnityEditor.Editor
     {
         VRMBlendShapeProxy m_target;
         SkinnedMeshRenderer[] m_renderers;

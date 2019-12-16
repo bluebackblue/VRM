@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 using UnityEditor;
 #endif
 using UnityEngine;
@@ -97,9 +97,7 @@ namespace UniHumanoid
 
         public Avatar CreateAvatar(Transform root)
         {
-			Avatar t_avatar = AvatarBuilder.BuildHumanAvatar(root.gameObject, ToHumanDescription(root));
-			//UnityEditor.AssetDatabase.CreateAsset(t_avatar,"Assets/VrmAvatar.mask");
-            return t_avatar;
+            return AvatarBuilder.BuildHumanAvatar(root.gameObject, ToHumanDescription(root));
         }
 
         public Avatar CreateAvatarAndSetup(Transform root)

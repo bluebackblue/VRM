@@ -2,11 +2,12 @@
 using UnityEditor;
 using UnityEngine;
 
+//blueback:Editor ==> UnityEditor.Editor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMMeta))]
-    public class VRMMetaEditor : Editor
+    public class VRMMetaEditor : UnityEditor.Editor
     {
         //VRMMeta m_target;
         SerializedProperty m_ScriptProp;

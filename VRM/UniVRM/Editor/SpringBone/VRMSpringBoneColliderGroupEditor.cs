@@ -1,11 +1,13 @@
-﻿using UnityEditor;
+﻿using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
+//blueback:Editor ==> UnityEditor.Editor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMSpringBoneColliderGroup))]
-    public class VRMSpringBoneColliderGroupEditor : Editor
+    public class VRMSpringBoneColliderGroupEditor : UnityEditor.Editor
     {
         VRMSpringBoneColliderGroup m_target;
 
@@ -37,6 +39,44 @@ namespace VRM
             {
                 EditorUtility.SetDirty(m_target);
             }
+        }
+        
+        [MenuItem("CONTEXT/VRMSpringBoneColliderGroup/X Mirror")]
+        private static void InvertOffsetX(MenuCommand command)
+        {
+            var target = command.context as VRMSpringBoneColliderGroup;
+            if (target == null) return;
+            
+            Undo.RecordObject(target, "X Mirror");
+            
+            foreach (var sphereCollider in target.Colliders)
+            {
+                var offset = sphereCollider.Offset;
+                offset.x *= -1f;
+                sphereCollider.Offset = offset;
+            }
+        }
+        
+        [MenuItem("CONTEXT/VRMSpringBoneColliderGroup/Sort Colliders by Radius")]
+        private static void SortByRadius(MenuCommand command)
+        {
+            var target = command.context as VRMSpringBoneColliderGroup;
+            if (target == null) return;
+            
+            Undo.RecordObject(target, "Sort Colliders by Radius");
+
+            target.Colliders = target.Colliders.OrderBy(x => -x.Radius).ToArray();
+        }
+        
+        [MenuItem("CONTEXT/VRMSpringBoneColliderGroup/Sort Colliders by Offset Y")]
+        private static void SortByOffsetY(MenuCommand command)
+        {
+            var target = command.context as VRMSpringBoneColliderGroup;
+            if (target == null) return;
+            
+            Undo.RecordObject(target, "Sort Colliders by Offset Y");
+
+            target.Colliders = target.Colliders.OrderBy(x => -x.Offset.y).ToArray();
         }
     }
 }
