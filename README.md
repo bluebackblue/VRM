@@ -4,7 +4,7 @@
 https://github.com/vrm-c/UniVRM/blob/master/LICENSE.txt
 
 ## ベース
-UniVRM-0.53.0_6b07.unitypackage
+UniVRM-0.54.0_700b.unitypackage
 
 ## 修正内容
 * スカート破綻の軽減（VRMSpringBone.cs）
