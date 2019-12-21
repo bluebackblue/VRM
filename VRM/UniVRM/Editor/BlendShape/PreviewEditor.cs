@@ -5,8 +5,6 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-//blueback:Editor ==> UnityEditor.Editor
-
 namespace VRM
 {
     /// <summary>
@@ -15,7 +13,7 @@ namespace VRM
     /// * https://github.com/Unity-Technologies/UnityCsReference/blob/11bcfd801fccd2a52b09bb6fd636c1ddcc9f1705/Editor/Mono/Inspector/ModelInspector.cs
     /// 
     /// </summary>
-    public abstract class PreviewEditor : UnityEditor.Editor
+    public abstract class PreviewEditor : Editor
     {
         /// <summary>
         /// PreviewRenderUtilityを管理する。

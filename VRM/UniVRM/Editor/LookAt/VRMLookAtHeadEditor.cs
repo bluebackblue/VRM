@@ -4,12 +4,11 @@ using UnityEngine;
 using UniGLTF;
 using System.Linq;
 
-//blueback:Editor ==> UnityEditor.Editor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMLookAtHead))]
-    public class VRMLookAtHeadEditor : UnityEditor.Editor
+    public class VRMLookAtHeadEditor : Editor
     {
         VRMLookAtHead m_target;
         PreviewRenderUtility m_previewRenderUtility;

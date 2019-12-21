@@ -5,12 +5,11 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-//blueback:Editor ==> UnityEditor.Editor
 
 namespace UniHumanoid
 {
     [CustomEditor(typeof(BoneMapping))]
-    public class BoneMappingEditor : UnityEditor.Editor
+    public class BoneMappingEditor : Editor
     {
         BoneMapping m_target;
 

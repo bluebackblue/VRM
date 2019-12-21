@@ -1,8 +1,10 @@
-﻿using System;
+using System;
 using System.Linq;
 using UniGLTF;
 using UnityEngine;
 
+//blueback:warning CS0109:
+#pragma warning disable 0109
 
 namespace VRM
 {
@@ -19,7 +21,7 @@ namespace VRM
             gltf.extensions.VRM = new glTF_VRM_extensions();
         }
 
-        public new static glTF Export(GameObject go)
+        public new static glTF Export(GameObject go, bool exportOnlyBlendShapePosition = false)
         {
             var gltf = new glTF();
 
@@ -27,12 +29,14 @@ namespace VRM
             {
 #if VRM_EXPORTER_USE_SPARSE
                 // experimental
-                UseSparseAccessorForBlendShape=true
+                UseSparseAccessorForBlendShape = true
 #endif
+                ExportOnlyBlendShapePosition = exportOnlyBlendShapePosition
             })
             {
                 _Export(gltf, exporter, go);
             }
+
             return gltf;
         }
 
@@ -60,6 +64,7 @@ namespace VRM
                         // use description
                         gltf.extensions.VRM.humanoid.Apply(description, nodes);
                     }
+
                     if (isCreated)
                     {
                         GameObject.DestroyImmediate(description);
@@ -119,6 +124,7 @@ namespace VRM
                     {
                         gltf.extensions.VRM.meta.texture = TextureIO.ExportTexture(gltf, gltf.buffers.Count - 1, meta.Thumbnail, glTFTextureTypes.Unknown);
                     }
+
                     gltf.extensions.VRM.meta.licenseType = meta.LicenseType;
                     gltf.extensions.VRM.meta.otherLicenseUrl = meta.OtherLicenseUrl;
                     gltf.extensions.VRM.meta.reference = meta.Reference;
@@ -144,7 +150,7 @@ namespace VRM
                         gltf.extensions.VRM.meta.texture = TextureIO.ExportTexture(gltf, gltf.buffers.Count - 1, meta.Thumbnail, glTFTextureTypes.Unknown);
                     }
 
-                    // ussage pemission
+                    // ussage permission
                     gltf.extensions.VRM.meta.allowedUser = meta.AllowedUser;
                     gltf.extensions.VRM.meta.violentUssage = meta.ViolentUssage;
                     gltf.extensions.VRM.meta.sexualUssage = meta.SexualUssage;

@@ -2,12 +2,11 @@
 using UnityEditor;
 using UnityEngine;
 
-//blueback:Editor ==> UnityEditor.Editor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMSpringBoneColliderGroup))]
-    public class VRMSpringBoneColliderGroupEditor : UnityEditor.Editor
+    public class VRMSpringBoneColliderGroupEditor : Editor
     {
         VRMSpringBoneColliderGroup m_target;
 

@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
-//blueback:e ==> /*e*/
+//blueback:warning CS0168:
+#pragma warning disable 0168
 
 namespace VRM
 {
@@ -87,7 +88,7 @@ namespace VRM
 
                 return true;
             }
-            catch (Exception /*e*/)
+            catch (Exception e)
             {
                 return false;
             }

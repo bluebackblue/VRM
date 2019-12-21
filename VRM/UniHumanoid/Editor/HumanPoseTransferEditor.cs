@@ -4,12 +4,11 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-//blueback:Editor ==> UnityEditor.Editor
 
 namespace UniHumanoid
 {
     [CustomEditor(typeof(HumanPoseTransfer))]
-    public class HumanPoseTransferEditor : UnityEditor.Editor
+    public class HumanPoseTransferEditor : Editor
     {
         //HumanPoseTransfer m_target;
         SerializedProperty m_avatarProp;
@@ -86,7 +85,7 @@ namespace UniHumanoid
             if (GUILayout.Button("Pose to AnimationClip"))
             {
                 var path = EditorUtility.SaveFilePanel(
-                        "Save animnationClip",
+                        "Save animationClip",
                         Application.dataPath,
                         string.Format("{0}.pose.anim", serializedObject.targetObject.name),
                         "anim");

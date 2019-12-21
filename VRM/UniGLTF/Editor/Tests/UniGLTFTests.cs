@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,7 +76,7 @@ namespace UniGLTF
             }
             finally
             {
-                //Debug.LogFormat("Destory, {0}", go.name);
+                //Debug.LogFormat("Destroy, {0}", go.name);
                 GameObject.DestroyImmediate(go);
                 context.EditorDestroyRootAndAssets();
             }
@@ -135,7 +135,7 @@ namespace UniGLTF
             var hoge = UnityPath.FromUnityPath("Assets/Hoge");
             Assert.AreEqual(assetsChild, hoge);
 
-            //var children = root.TravserseDir().ToArray();
+            //var children = root.TraverseDir().ToArray();
         }
 
         [Test]
@@ -670,7 +670,7 @@ namespace UniGLTF
                 {
                     var context = new ImporterContext
                     {
-                        UseUniJSONParser = true
+                        SerializerType = SerializerTypes.UniJSON
                     };
                     context.ParseJson(json, new SimpleStorage(new ArraySegment<byte>(new byte[1024 * 1024])));
                     //Debug.LogFormat("{0}", context.Json);

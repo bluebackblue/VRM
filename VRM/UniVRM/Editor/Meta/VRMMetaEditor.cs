@@ -2,12 +2,11 @@
 using UnityEditor;
 using UnityEngine;
 
-//blueback:Editor ==> UnityEditor.Editor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMMeta))]
-    public class VRMMetaEditor : UnityEditor.Editor
+    public class VRMMetaEditor : Editor
     {
         //VRMMeta m_target;
         SerializedProperty m_ScriptProp;
@@ -71,7 +70,7 @@ namespace VRM
         }
 
         bool m_foldoutInfo = true;
-        bool m_foldoutPersmission = true;
+        bool m_foldoutPermission = true;
         bool m_foldoutDistribution = true;
         void VRMMetaObjectGUI(SerializedObject so)
         {
@@ -104,8 +103,8 @@ namespace VRM
 
             EditorGUILayout.LabelField("License ", EditorStyles.boldLabel);
 
-            m_foldoutPersmission = EditorGUILayout.Foldout(m_foldoutPersmission, "Personation / Characterization Permission");
-            if (m_foldoutPersmission)
+            m_foldoutPermission = EditorGUILayout.Foldout(m_foldoutPermission, "Personation / Characterization Permission");
+            if (m_foldoutPermission)
             {
                 EditorGUILayout.PropertyField(m_propMap["AllowedUser"], new GUIContent("A person who can perform with this avatar"), false);
                 EditorGUILayout.PropertyField(m_propMap["ViolentUssage"], new GUIContent("Violent acts using this avatar"));
