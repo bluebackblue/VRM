@@ -1,12 +1,13 @@
-﻿using System.Linq;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+//blueback:UnityEditor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMSpringBoneColliderGroup))]
-    public class VRMSpringBoneColliderGroupEditor : Editor
+    public class VRMSpringBoneColliderGroupEditor : UnityEditor.Editor
     {
         VRMSpringBoneColliderGroup m_target;
 

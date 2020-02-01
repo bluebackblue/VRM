@@ -1,9 +1,11 @@
-﻿using UnityEditor;
+using UnityEditor;
+
+//blueback:UnityEditor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMFirstPerson))]
-    class VRMFirstPersonEditor : Editor
+    class VRMFirstPersonEditor : UnityEditor.Editor
     {
         void OnSceneGUI()
         {

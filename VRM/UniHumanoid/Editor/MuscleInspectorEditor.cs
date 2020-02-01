@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
+//blueback:UnityEditor
 
 namespace UniHumanoid
 {
@@ -280,7 +281,7 @@ namespace UniHumanoid
 
 
     [CustomEditor(typeof(MuscleInspector))]
-    public class MuscleInspectorEditor : Editor
+    public class MuscleInspectorEditor : UnityEditor.Editor
     {
         [NonSerialized] bool m_Initialized;
         [SerializeField] TreeViewState m_TreeViewState; // Serialized in the window layout file so it survives assembly reloading

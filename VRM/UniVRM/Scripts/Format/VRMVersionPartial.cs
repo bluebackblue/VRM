@@ -1,5 +1,8 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
+
+//blueback:warning CS0168:
+#pragma warning disable 0168
 
 namespace VRM
 {

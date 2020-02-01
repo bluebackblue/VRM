@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using System.Linq;
 
+//blueback:UnityEditor
 
 namespace VRM
 {
     [CustomEditor(typeof(VRMBlendShapeProxy))]
-    public class VRMBlendShapeProxyEditor : Editor
+    public class VRMBlendShapeProxyEditor : UnityEditor.Editor
     {
         VRMBlendShapeProxy m_target;
         SkinnedMeshRenderer[] m_renderers;

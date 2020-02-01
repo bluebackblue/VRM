@@ -1,15 +1,16 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+//blueback:UnityEditor
 
 namespace UniHumanoid
 {
     [CustomEditor(typeof(BoneMapping))]
-    public class BoneMappingEditor : Editor
+    public class BoneMappingEditor : UnityEditor.Editor
     {
         BoneMapping m_target;
 
